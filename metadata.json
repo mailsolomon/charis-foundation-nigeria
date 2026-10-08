@@ -1,0 +1,6 @@
+{
+  "name": "Charis Foundation Nigeria",
+  "description": "Faith-based NGO sponsoring and partnering with institutions to empower vulnerable Nigerians through education, technology, agriculture, and vocational skill acquisition. Grace to Grow; Skills to Thrive.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
