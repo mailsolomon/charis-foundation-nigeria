@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageView } from '../types';
 import { Heart, ArrowRight, ShieldCheck, Sparkles, Handshake, Smile, CheckCircle2, Quote } from 'lucide-react';
+import { IMAGES } from '../assets/images';
 
 interface HomePageProps {
   setCurrentPage: (page: PageView) => void;
@@ -18,7 +19,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         {/* Serene background image with measured dark scrim */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/charis_hero_empowerment_1791295656073.jpg"
+            src={IMAGES.hero}
             alt="Charis Foundation Nigeria empowerment and sponsorship"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center brightness-75 contrast-105"

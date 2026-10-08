@@ -1,4 +1,5 @@
 import { PillarDetail, ImpactStory, PitchDeckSlide } from '../types';
+import { IMAGES } from '../assets/images';
 
 export const PILLARS_DATA: PillarDetail[] = [
   {
@@ -6,7 +7,7 @@ export const PILLARS_DATA: PillarDetail[] = [
     title: 'Education & Foundational Scholarships',
     shortDescription: 'Sponsoring vulnerable out-of-school children and promising youths into accredited schools, remedial centers, and tertiary STEM programs.',
     fullDescription: 'Charis Foundation identifies needy, orphaned, and out-of-school children across vulnerable Nigerian communities and sponsors their full enrollment into accredited partner basic schools, remedial WAEC/JAMB tutorial centers, and technical colleges—supplying textbooks, uniform grants, exam fees, and pastoral mentorship.',
-    image: '/src/assets/images/charis_tech_education_hub_1791295669365.jpg',
+    image: IMAGES.tech,
     iconName: 'BookOpen',
     accentColor: 'blue',
     keyStats: [
@@ -34,7 +35,7 @@ export const PILLARS_DATA: PillarDetail[] = [
     title: 'Technology & Digital Skills Sponsorship',
     shortDescription: 'Funding tuition and providing developer laptops for vulnerable youths in certified tech bootcamps, coding academies, and digital hubs.',
     fullDescription: 'To bridge Nigeria’s digital divide, Charis Foundation partners with premier software bootcamps, innovation hubs, and government digital innovation centers. We sponsor selected vulnerable youths through rigorous certifications in web development, data analysis, UI/UX, and cloud computing—equipping each fellow with a personal developer laptop and internet data stipend.',
-    image: '/src/assets/images/charis_tech_education_hub_1791295669365.jpg',
+    image: IMAGES.tech,
     iconName: 'Laptop',
     accentColor: 'indigo',
     keyStats: [
@@ -62,7 +63,7 @@ export const PILLARS_DATA: PillarDetail[] = [
     title: 'Agriculture & Agritech Empowerment',
     shortDescription: 'Partnering with agricultural institutes and government agencies to train and equip vulnerable rural families with seeds, drip irrigation, and modern inputs.',
     fullDescription: 'Food security and rural wealth creation are vital for vulnerable households. Charis Foundation sponsors indigent youths and smallholder heads-of-household into specialized practical training programs run by government agricultural extension services, university farm hubs, and agritech ventures. Post-training, Charis provides direct farm starter kits: solar drip systems, improved seedlings, poultry, and cooperative market linkages.',
-    image: '/src/assets/images/charis_agriculture_training_1791295680513.jpg',
+    image: IMAGES.agriculture,
     iconName: 'Sprout',
     accentColor: 'emerald',
     keyStats: [
@@ -90,7 +91,7 @@ export const PILLARS_DATA: PillarDetail[] = [
     title: 'Vocational Capacity Building & Trade Support',
     shortDescription: 'Collaborating with NDE, ITF, and master craft institutes to sponsor vocational apprenticeships and supply complete starter equipment toolkits.',
     fullDescription: 'True economic capacity building requires trade mastery backed by the physical tools of the trade. We partner with government vocational institutions like the National Directorate of Employment (NDE), Industrial Training Fund (ITF), and accredited craft guilds. Charis funds the complete vocational enrollment and, upon completion, awards every graduate an industrial starter toolkit (such as industrial sewing machines, solar PV installation toolkits, or craft kits) plus micro-seed grants.',
-    image: '/src/assets/images/charis_community_empowerment_1791295691785.jpg',
+    image: IMAGES.community,
     iconName: 'Award',
     accentColor: 'amber',
     keyStats: [
@@ -128,7 +129,7 @@ export const IMPACT_STORIES: ImpactStory[] = [
     beforeStatus: 'Unemployed out-of-school youth hawking on the roadside',
     currentStatus: 'Junior Web Developer & Charis Alumni Ambassador',
     supportReceived: '100% Bootcamp Tuition, Laptop Grant, Internet Data & Transit Stipend',
-    image: '/src/assets/images/charis_tech_education_hub_1791295669365.jpg'
+    image: IMAGES.tech
   },
   {
     id: 'story-2',
@@ -142,7 +143,7 @@ export const IMPACT_STORIES: ImpactStory[] = [
     beforeStatus: 'Destitute subsistence farmer with 65% seasonal harvest loss',
     currentStatus: 'Founder of Al-Barakah Agri-Ventures (Employing 3 youths)',
     supportReceived: 'Institutional Training Sponsorship, Solar Drip Irrigation Kit & Seed Pack',
-    image: '/src/assets/images/charis_agriculture_training_1791295680513.jpg'
+    image: IMAGES.agriculture
   },
   {
     id: 'story-3',
@@ -156,7 +157,7 @@ export const IMPACT_STORIES: ImpactStory[] = [
     beforeStatus: 'Destitute widow with zero income or productive assets',
     currentStatus: 'Owner of GraceCraft Apparel, children returned to school',
     supportReceived: 'NDE Apprenticeship Tuition, Industrial Sewing Machine Grant & Material Seed Fund',
-    image: '/src/assets/images/charis_community_empowerment_1791295691785.jpg'
+    image: IMAGES.community
   }
 ];
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageView } from '../types';
 import { ArrowRight, Heart, Sparkles, ShieldCheck, Handshake } from 'lucide-react';
+import { IMAGES } from '../assets/images';
 
 interface HeroProps {
   setCurrentPage: (page: PageView) => void;
@@ -13,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentPage, openDonateModal }) =
       {/* Background Hero Image with measured scrim */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/charis_hero_empowerment_1791295656073.jpg"
+          src={IMAGES.hero}
           alt="Charis Foundation Nigeria sponsoring vulnerable youth training with partner institutions"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center brightness-90 contrast-105"
