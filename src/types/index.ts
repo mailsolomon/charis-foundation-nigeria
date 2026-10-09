@@ -1,4 +1,4 @@
-export type PageView = 'home' | 'about' | 'pillars' | 'calendar' | 'impact' | 'donate' | 'contact' | 'deck';
+export type PageView = 'home' | 'about' | 'pillars' | 'calendar' | 'impact' | 'donate' | 'contact' | 'deck' | 'admin';
 
 export type PillarId = 'education' | 'technology' | 'agriculture' | 'capacity';
 

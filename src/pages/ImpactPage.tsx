@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IMPACT_STORIES } from '../data/mockData';
+import { useApp } from '../context/AppContext';
 import { PageView } from '../types';
 import {
   FileText,
@@ -24,6 +24,7 @@ export const ImpactPage: React.FC<ImpactPageProps> = ({
   setCurrentPage,
   openDonateModal,
 }) => {
+  const { content } = useApp();
   const [downloadReportSuccess, setDownloadReportSuccess] = useState(false);
 
   const handleDownloadReport = () => {
@@ -186,7 +187,7 @@ Published by the Board of Trustees, Charis Foundation Nigeria.`;
         </div>
 
         <div className="space-y-8">
-          {IMPACT_STORIES.map((story) => (
+          {content.stories.map((story) => (
             <div
               key={story.id}
               className="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"

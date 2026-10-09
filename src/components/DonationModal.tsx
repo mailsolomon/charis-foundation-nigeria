@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, CheckCircle, ShieldCheck, Heart, Download, CreditCard, Sparkles, Handshake } from 'lucide-react';
+import { CharisLogo } from './CharisLogo';
 
 interface DonationModalProps {
   isOpen: boolean;
@@ -71,6 +72,9 @@ export const DonationModal: React.FC<DonationModalProps> = ({
         {/* Modal Header */}
         <div className="flex items-start justify-between pb-4 border-b border-slate-100">
           <div>
+            <div className="mb-2.5">
+              <CharisLogo height={52} className="h-12 sm:h-13 w-auto" />
+            </div>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-700">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Sponsor a Vulnerable Life · Charis Foundation</span>

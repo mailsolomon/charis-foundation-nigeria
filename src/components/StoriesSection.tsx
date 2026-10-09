@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { IMPACT_STORIES } from '../data/mockData';
+import { useApp } from '../context/AppContext';
 import { ImpactStory } from '../types';
 import { Quote, MapPin, X, ArrowUpRight, Building2, PackageCheck } from 'lucide-react';
 
 export const StoriesSection: React.FC = () => {
+  const { content } = useApp();
   const [activeStoryModal, setActiveStoryModal] = useState<ImpactStory | null>(null);
 
   return (
@@ -22,7 +23,7 @@ export const StoriesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {IMPACT_STORIES.map((story) => (
+          {content.stories.map((story) => (
             <div
               key={story.id}
               className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between"

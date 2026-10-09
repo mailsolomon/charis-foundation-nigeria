@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PILLARS_DATA } from '../data/mockData';
+import { useApp } from '../context/AppContext';
 import { PageView } from '../types';
 import {
   Calendar,
@@ -23,57 +23,35 @@ export const CalendarPage: React.FC<CalendarPageProps> = ({
   setCurrentPage,
   openDonateModal,
 }) => {
+  const { content, submitNomination } = useApp();
+
   // Nomination form state
   const [applicantName, setApplicantName] = useState('');
   const [applicantPhone, setApplicantPhone] = useState('');
   const [applicantLocation, setApplicantLocation] = useState('');
-  const [applicantPillar, setApplicantPillar] = useState(PILLARS_DATA[0].title);
+  const [applicantPillar, setApplicantPillar] = useState(content.pillars[0]?.title || 'Technology & Digital Skills Sponsorship');
   const [applicantReason, setApplicantReason] = useState('');
   const [nominatorRelationship, setNominatorRelationship] = useState('Self (Vulnerable Applicant)');
   const [appSubmitted, setAppSubmitted] = useState(false);
   const [applicationRef, setApplicationRef] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const cohortSchedule = [
-    {
-      quarter: 'Sponsored Cohort 19 (Q1 2027)',
-      track: 'Technology & Web Engineering',
-      dates: 'Jan 15 – Jul 10, 2027',
-      location: 'Partner Software Academies (Abuja & Lagos) + Remote',
-      support: '100% Tuition + Laptop Grant + Data Stipends',
-      slots: '45 Sponsored Seats'
-    },
-    {
-      quarter: 'Sponsored Cohort 20 (Q1 2027)',
-      track: 'Climate Greenhouse Agriculture & Agritech',
-      dates: 'Feb 01 – Jun 20, 2027',
-      location: 'State Agricultural Extension & Research Centers (Kaduna)',
-      support: '100% Course Fees + Solar Drip Kits + Seed Packs',
-      slots: '60 Sponsored Smallholders'
-    },
-    {
-      quarter: 'Sponsored Cohort 21 (Q2 2027)',
-      track: 'Vocational Fashion Construction & Solar PV',
-      dates: 'Apr 05 – Aug 28, 2027',
-      location: 'National Directorate of Employment (NDE) Centers',
-      support: '100% Apprenticeship Fees + Industrial Sewing Machine',
-      slots: '50 Sponsored Women & Youths'
-    },
-    {
-      quarter: 'Sponsored Cohort 22 (Q2 2027)',
-      track: 'Foundational STEM & Remedial WAEC/JAMB',
-      dates: 'May 10 – Nov 15, 2027',
-      location: 'Accredited Remedial Centers & Partner Secondary Schools',
-      support: '100% Exam Fees + Textbooks + Uniforms',
-      slots: '120 Sponsored Candidates'
-    }
-  ];
-
-  const handleApplySubmit = (e: React.FormEvent) => {
+  const handleApplySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!applicantName || !applicantPhone) return;
 
-    const ref = `CHR-NOM-${Math.floor(10000 + Math.random() * 90000)}`;
-    setApplicationRef(ref);
+    setIsSubmitting(true);
+    const res = await submitNomination({
+      applicantName,
+      applicantPhone,
+      applicantLocation,
+      applicantPillar,
+      applicantReason,
+      nominatorRelationship,
+    });
+    setIsSubmitting(false);
+
+    setApplicationRef(res.ref || `CHR-NOM-${Math.floor(10000 + Math.random() * 90000)}`);
     setAppSubmitted(true);
   };
 
@@ -118,9 +96,9 @@ export const CalendarPage: React.FC<CalendarPageProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {cohortSchedule.map((c, idx) => (
+          {content.cohorts.map((c) => (
             <div
-              key={idx}
+              key={c.id}
               className="bg-white p-6 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors space-y-3"
             >
               <div className="flex items-center justify-between text-xs">
@@ -256,7 +234,7 @@ export const CalendarPage: React.FC<CalendarPageProps> = ({
                       onChange={(e) => setApplicantPillar(e.target.value)}
                       className="w-full text-xs px-3 py-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-1 focus:ring-amber-500"
                     >
-                      {PILLARS_DATA.map((p) => (
+                      {content.pillars.map((p) => (
                         <option key={p.id} value={p.title}>
                           {p.title}
                         </option>

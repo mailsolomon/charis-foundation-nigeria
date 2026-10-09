@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 854 300" width="100%" height="100%">
+  <defs>
+    <!-- Crisp Golden Radial & Linear Gradients -->
+    <linearGradient id="cfCrossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="35%" stop-color="#FBBF24" />
+      <stop offset="70%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <!-- Blue Figure Gradient -->
+    <linearGradient id="cfBlueFigure" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="35%" stop-color="#0284C7" />
+      <stop offset="70%" stop-color="#1D4ED8" />
+      <stop offset="100%" stop-color="#0B2356" />
+    </linearGradient>
+
+    <!-- Gold/Amber Figure Gradient -->
+    <linearGradient id="cfGoldFigure" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="35%" stop-color="#F59E0B" />
+      <stop offset="80%" stop-color="#EA580C" />
+      <stop offset="100%" stop-color="#C2410C" />
+    </linearGradient>
+
+    <!-- Base Royal Blue Hands Gradient -->
+    <linearGradient id="cfBlueHands" x1="0%" y1="20%" x2="100%" y2="90%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="30%" stop-color="#1E3A8A" />
+      <stop offset="75%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#081026" />
+    </linearGradient>
+
+    <!-- Golden Wing Flame Accent Gradient -->
+    <linearGradient id="cfGoldWings" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="40%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <!-- High-visibility 3D Golden Orb with Specular Highlight -->
+    <radialGradient id="cfSphereGold" cx="35%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#FEF08A" />
+      <stop offset="55%" stop-color="#F59E0B" />
+      <stop offset="85%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#9A3412" />
+    </radialGradient>
+
+    <filter id="cfGlowSphere" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="cfDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+    </filter>
+
+    <clipPath id="cfClipDot">
+      <rect x="0" y="0" width="648" height="340" />
+      <rect x="694" y="0" width="300" height="340" />
+      <rect x="648" y="108" width="46" height="232" />
+    </clipPath>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&amp;display=swap');
+      .cf-bold-brand {
+        font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- ==================== EMBLEM (Left Side) ==================== -->
+  <g id="cf-emblem">
+    <!-- Base Ground Shadow -->
+    <ellipse cx="168" cy="305" rx="82" ry="7" fill="#0A1931" opacity="0.24" filter="url(#cfDropShadow)" />
+
+    <!-- Radiant Rays -->
+    <g fill="url(#cfCrossGrad)">
+      <polygon points="168,18 164,48 172,48" opacity="0.95" />
+      <polygon points="152,24 156,51 161,49" opacity="0.85" />
+      <polygon points="184,24 175,49 180,51" opacity="0.85" />
+      <polygon points="128,43 151,57 153,52" opacity="0.9" />
+      <polygon points="122,64 148,67 148,62" opacity="0.95" />
+      <polygon points="128,86 150,77 152,82" opacity="0.85" />
+      <polygon points="208,43 183,52 185,57" opacity="0.9" />
+      <polygon points="214,64 188,62 188,67" opacity="0.95" />
+      <polygon points="208,86 184,82 186,77" opacity="0.85" />
+    </g>
+
+    <!-- Radiant Cross -->
+    <g fill="url(#cfCrossGrad)">
+      <rect x="162" y="32" width="12" height="76" rx="3" />
+      <rect x="143" y="51" width="50" height="12" rx="3" />
+    </g>
+
+    <!-- Outer Flame Wings -->
+    <path d="M168,268 C135,264 88,236 62,176 C46,138 52,98 56,86 C58,102 68,142 98,172 C124,198 152,216 168,268 Z"
+          fill="url(#cfGoldWings)" />
+    <path d="M168,268 C198,264 240,240 264,188 C278,156 276,122 272,110 C274,126 270,158 244,188 C220,216 188,236 168,268 Z"
+          fill="url(#cfGoldWings)" />
+
+    <!-- Left Uplifted Figure (Sky to Deep Royal Blue) -->
+    <g>
+      <circle cx="126" cy="122" r="16.5" fill="url(#cfBlueFigure)" />
+      <path d="M164,242 C154,228 138,206 120,186 C102,166 94,146 106,128 C114,138 126,152 144,166 C158,144 172,118 174,106 C176,118 168,146 156,178 C150,196 158,218 164,242 Z"
+            fill="url(#cfBlueFigure)" />
+    </g>
+
+    <!-- Right Uplifted Figure (Radiant Golden Amber) -->
+    <g>
+      <circle cx="218" cy="136" r="15" fill="url(#cfSphereGold)" />
+      <path d="M166,244 C176,232 192,212 208,190 C222,170 230,152 220,138 C214,148 202,162 188,174 C182,156 178,138 178,124 C180,136 188,156 196,178 C200,192 188,218 166,244 Z"
+            fill="url(#cfGoldFigure)" />
+    </g>
+
+    <!-- Cupped Hands Base Cradle -->
+    <g>
+      <path d="M168,292 C146,290 102,274 68,232 C40,198 32,158 28,144 C34,164 48,208 86,242 C120,272 152,284 168,292 Z"
+            fill="url(#cfBlueHands)" />
+      <path d="M168,292 C150,286 114,264 88,228 C68,200 66,172 68,162 C74,178 88,208 116,234 C142,258 158,276 168,292 Z"
+            fill="url(#cfBlueFigure)" opacity="0.9" />
+      <path d="M168,292 C190,290 234,274 268,232 C296,198 304,158 308,144 C302,164 288,208 250,242 C216,272 184,284 168,292 Z"
+            fill="url(#cfBlueHands)" />
+      <path d="M168,292 C186,286 222,264 248,228 C268,200 270,172 268,162 C262,178 248,208 220,234 C194,258 178,276 168,292 Z"
+            fill="url(#cfBlueFigure)" opacity="0.9" />
+      <path d="M168,292 C158,280 148,260 152,246 C158,258 164,272 168,292 C172,272 178,258 184,246 C188,260 178,280 168,292 Z"
+            fill="url(#cfBlueHands)" />
+    </g>
+  </g>
+
+  <!-- ==================== VERTICAL GOLDEN DIVIDER ==================== -->
+  <rect x="330" y="66" width="6" height="210" rx="3" fill="url(#cfCrossGrad)" />
+
+  <!-- ==================== TYPOGRAPHY & LOGOTYPE ==================== -->
+  <g id="cf-logotype">
+    <!-- "Charis" Main Wordmark -->
+    <text x="354" y="180"
+          clip-path="url(#cfClipDot)"
+          class="cf-bold-brand"
+          font-size="124"
+          font-weight="900"
+          letter-spacing="-1.5"
+          fill="#071A38">Charis</text>
+
+    <!-- 3D Spherical Dot over 'i' with specular shine -->
+    <g filter="url(#cfGlowSphere)">
+      <circle cx="671" cy="78" r="22.5" fill="url(#cfSphereGold)" />
+      <ellipse cx="665" cy="71" rx="7" ry="4" fill="#FFFFFF" opacity="0.75" />
+    </g>
+
+    <!-- "Foundation Nigeria" Secondary Line -->
+    <text x="356" y="238"
+          class="cf-bold-brand"
+          font-size="41"
+          font-weight="700"
+          letter-spacing="0.4"
+          fill="#0C2340">Foundation Nigeria</text>
+
+    <!-- Golden Horizontal Baseline Rule under Foundation Nigeria -->
+    <rect x="356" y="254" width="440" height="7" rx="3.5" fill="url(#cfCrossGrad)" />
+  </g>
+</svg>

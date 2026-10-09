@@ -1,5 +1,5 @@
 import React from 'react';
-import { BOARD_MEMBERS, PILLARS_DATA } from '../data/mockData';
+import { useApp } from '../context/AppContext';
 import { PageView } from '../types';
 import {
   ShieldCheck,
@@ -28,6 +28,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   setCurrentPage,
   openDonateModal,
 }) => {
+  const { content } = useApp();
+
   return (
     <div className="py-12 sm:py-20 bg-white space-y-20">
       {/* 1. Header & Identity */}
@@ -173,7 +175,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {PILLARS_DATA.map((pillar) => (
+          {content.pillars.map((pillar) => (
             <div
               key={pillar.id}
               className="bg-white p-7 rounded-2xl border border-slate-200 hover:border-slate-300 transition-colors shadow-xs space-y-4 flex flex-col justify-between"
@@ -276,7 +278,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {BOARD_MEMBERS.map((member, idx) => (
+          {content.boardMembers.map((member, idx) => (
             <div
               key={idx}
               className="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between hover:border-slate-300 transition-colors shadow-xs"

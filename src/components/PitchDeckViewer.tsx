@@ -12,6 +12,7 @@ import {
   Sparkles,
   Info
 } from 'lucide-react';
+import { CharisLogo } from './CharisLogo';
 
 export const PitchDeckViewer: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -139,9 +140,10 @@ export const PitchDeckViewer: React.FC = () => {
                 <span aria-hidden="true">·</span>
                 <span className="text-slate-300">{slide.category}</span>
               </div>
-              <div className="flex items-center gap-2 text-xs">
-                <span className="text-slate-500">Charis Foundation Nigeria</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <div className="flex items-center gap-2.5 text-xs">
+                <CharisLogo variant="emblem" height={28} className="h-7 w-auto" />
+                <span className="text-slate-200 font-bold">Charis Foundation Nigeria</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               </div>
             </div>
 

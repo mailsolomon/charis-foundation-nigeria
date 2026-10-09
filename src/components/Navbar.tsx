@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageView } from '../types';
-import { Menu, X, Heart, Presentation } from 'lucide-react';
+import { Menu, X, Heart, Presentation, ShieldCheck } from 'lucide-react';
+import { CharisLogo } from './CharisLogo';
 
 interface NavbarProps {
   currentPage: PageView;
@@ -33,15 +34,17 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Zone 1: Brand wordmark as single text element */}
+        <div className="flex items-center justify-between min-h-[84px] sm:min-h-[92px] lg:min-h-[98px] py-2">
+          {/* Zone 1: Official Brand Logo replacing name holder */}
           <button
             onClick={() => handleNavClick('home')}
-            className="text-left group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+            className="flex items-center text-left group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg p-1 -ml-1 transition-all"
+            title="Charis Foundation Nigeria"
           >
-            <span className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-blue-950 transition-colors">
-              Charis Foundation Nigeria
-            </span>
+            <CharisLogo
+              height={74}
+              className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto transition-transform duration-200 group-hover:scale-[1.02]"
+            />
           </button>
 
           {/* Zone 2: 4-6 text navigation links */}
@@ -68,25 +71,38 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Zone 3: 1-2 primary actions */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2.5">
+            <button
+              onClick={() => handleNavClick('admin')}
+              title="Charis Secretariat Admin Panel"
+              className={`flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-lg border transition-all cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+                currentPage === 'admin'
+                  ? 'bg-slate-900 text-amber-400 border-slate-900 shadow-sm'
+                  : 'border-slate-300 text-slate-700 hover:bg-slate-50'
+              }`}
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
+              <span>Admin</span>
+            </button>
+
             <button
               onClick={() => handleNavClick('deck')}
-              className={`flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-lg border transition-all cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+              className={`flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg border transition-all cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
                 currentPage === 'deck'
                   ? 'bg-blue-900 text-white border-blue-900 shadow-sm'
                   : 'border-slate-300 text-slate-700 hover:bg-slate-50'
               }`}
             >
               <Presentation className="w-3.5 h-3.5 text-amber-500" />
-              <span>Board Pitch Deck</span>
+              <span>Pitch Deck</span>
             </button>
 
             <button
               onClick={openDonateModal}
-              className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-amber-600 hover:bg-amber-700 rounded-lg shadow-sm transition-all cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+              className="flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-white bg-amber-600 hover:bg-amber-700 rounded-lg shadow-sm transition-all cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
             >
               <Heart className="w-3.5 h-3.5 fill-white/20" />
-              <span>Donate Now</span>
+              <span>Donate</span>
             </button>
           </div>
 
@@ -112,6 +128,12 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg">
+          <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-100">
+            <CharisLogo height={48} className="h-12 w-auto" />
+            <span className="text-[11px] font-semibold text-amber-800 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded-full">
+              Official Portal
+            </span>
+          </div>
           {navLinks.map((link) => (
             <button
               key={link.page}
@@ -126,6 +148,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           ))}
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+            <button
+              onClick={() => handleNavClick('admin')}
+              className="flex items-center justify-center gap-2 w-full py-2.5 text-sm font-semibold rounded-md bg-slate-900 text-amber-400 hover:bg-slate-800"
+            >
+              <ShieldCheck className="w-4 h-4 text-amber-400" />
+              <span>Secretariat Admin Panel</span>
+            </button>
             <button
               onClick={() => handleNavClick('deck')}
               className="flex items-center justify-center gap-2 w-full py-2.5 text-sm font-semibold rounded-md border border-slate-300 text-slate-800 hover:bg-slate-50"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useApp } from '../context/AppContext';
+import { PillarId, PageView, PillarDetail } from '../types';
 import { PILLARS_DATA } from '../data/mockData';
-import { PillarId, PageView } from '../types';
 import { BookOpen, Laptop, Sprout, Award, CheckCircle2, ArrowRight, Heart, Building2, PackageCheck } from 'lucide-react';
 
 interface PillarsSectionProps {
@@ -14,8 +15,10 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({
   openDonateModal,
   onApplyClick,
 }) => {
+  const { content } = useApp();
   const [selectedPillarId, setSelectedPillarId] = useState<PillarId>('education');
-  const activePillar = PILLARS_DATA.find((p) => p.id === selectedPillarId) || PILLARS_DATA[0];
+  const pillarsList: PillarDetail[] = content?.pillars?.length ? content.pillars : PILLARS_DATA;
+  const activePillar: PillarDetail = pillarsList.find((p: PillarDetail) => p.id === selectedPillarId) || pillarsList[0];
 
   const getIcon = (id: PillarId) => {
     switch (id) {
@@ -49,7 +52,7 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({
         {/* Interactive Segmented Filter Controls */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex flex-wrap p-1.5 bg-slate-200/80 rounded-xl gap-1.5 max-w-full">
-            {PILLARS_DATA.map((pillar) => {
+            {content.pillars.map((pillar) => {
               const isSelected = pillar.id === selectedPillarId;
               return (
                 <button
@@ -97,7 +100,7 @@ export const PillarsSection: React.FC<PillarsSectionProps> = ({
             <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 space-y-6">
               <div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-amber-700 uppercase tracking-wide mb-2">
-                  <span>Track 0{PILLARS_DATA.findIndex((p) => p.id === activePillar.id) + 1}</span>
+                  <span>Track 0{Math.max(0, pillarsList.findIndex((p) => p.id === activePillar.id)) + 1}</span>
                   <span aria-hidden="true">·</span>
                   <span>Institutional Sponsorship Model</span>
                 </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { PageView } from '../types';
 import { ArrowRight, Heart, Sparkles, ShieldCheck, Handshake } from 'lucide-react';
 import { IMAGES } from '../assets/images';
+import { CharisLogo } from './CharisLogo';
 
 interface HeroProps {
   setCurrentPage: (page: PageView) => void;
@@ -27,8 +28,8 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentPage, openDonateModal }) =
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="max-w-3xl space-y-6">
           {/* Faith Identity Kicker */}
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-amber-400">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-2.5 text-xs font-semibold tracking-wider uppercase text-amber-300 bg-slate-900/60 border border-amber-500/30 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+            <CharisLogo variant="emblem" height={22} className="h-5.5 w-auto shrink-0 drop-shadow-xs" />
             <span>Faith-Based NGO · Sponsoring & Partnering for Grassroots Impact</span>
           </div>
 
